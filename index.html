@@ -728,6 +728,7 @@
                 <span class="suggestion-chip" onclick="quickQuery('Active OCAP cases')">🔧 OCAP cases ที่ active</span>
                 <span class="suggestion-chip" onclick="quickQuery('My pending approvals')">✅ Approvals ที่รอ</span>
                 <span class="suggestion-chip" onclick="quickQuery('Show Neptune 2TB data')">🔍 ข้อมูล Neptune 2TB</span>
+                <span class="suggestion-chip" onclick="quickQuery('Search HDD in PE Inventory')">📦 ค้นหา HDD ใน PE Lab</span>
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
@@ -845,6 +846,16 @@
                 </div>
             </div>
 
+            <div class="access-card" onclick="openSystem('brc')">
+                <div class="card-icon">📦</div>
+                <div class="card-title">PE Inventory</div>
+                <div class="card-description">HDD tracking, S/N search, location management</div>
+                <div class="card-status">
+                    <span class="status-badge active">🟢 Online</span>
+                    <span style="opacity: 0.7;">196K records</span>
+                </div>
+            </div>
+
             <div class="access-card" onclick="openSystem('wwc')">
                 <div class="card-icon">🎮</div>
                 <div class="card-title">WWC Services</div>
@@ -881,7 +892,7 @@
                     <div class="chat-avatar">🤖</div>
                     <div>
                         <div class="chat-bubble">
-                            สวัสดีครับ! ผมเป็น AI Assistant ของ WD Smart Hub<br>
+                            สวัสดีครับ! ผมเป็น AI Assistant ของ WD-Nexus<br>
                             ผมสามารถช่วยคุณหาข้อมูลจากทุกระบบได้ ลองถามผมดูสิครับ 😊
                         </div>
                         <div class="chat-time">Just now</div>
@@ -978,16 +989,34 @@
                         </div>
                     </div>
                 `;
+            } else if (query.toLowerCase().includes('inventory') || 
+                       query.toLowerCase().includes('pe lab') ||
+                       query.toLowerCase().includes('hdd') ||
+                       query.toLowerCase().includes('pe inventory')) {
+                response = `
+                    <div class="search-result-item">
+                        <div class="result-title">📦 PE Inventory System</div>
+                        <div class="result-source">Source: PE Inventory IN/OUT Control</div>
+                        <div class="result-snippet">
+                            <strong>Total HDDs:</strong> 196,487 records<br>
+                            <strong>Products:</strong> SEW, LDV, PDS, HDS, LBS, SEK, PDQ, VCL, PCM, VCC, MFH, XBA<br>
+                            <strong>Features:</strong> S/N Search, Location Tracking, IN/OUT Log<br>
+                            <strong>Status:</strong> 🟢 Online<br>
+                            <strong>Quick Actions:</strong> Search by Serial Number, Check HDD Location, View Holding Summary
+                        </div>
+                    </div>
+                `;
             } else {
                 response = `
                     <div class="search-result-item">
                         <div class="result-title">🔍 Search Results for "${query}"</div>
-                        <div class="result-source">Searched across 15+ systems</div>
+                        <div class="result-source">Searched across 13 systems</div>
                         <div class="result-snippet">
                             Found results across:<br>
                             • Agile PLM<br>
                             • MVX Portal<br>
                             • OCAP System<br>
+                            • PE Inventory<br>
                             • BEAMM<br>
                             • SharePoint<br>
                             • ServiceNow<br>
@@ -1226,6 +1255,79 @@
                         </button>
                     `
                 },
+                brc: {
+                    title: '📦 PE Inventory System',
+                    content: `
+                        <h3>PE Inventory IN/OUT System Control</h3>
+                        <p style="margin: 15px 0; opacity: 0.8;">
+                            ระบบจัดการ HDD Inventory ในห้อง PE Lab<br>
+                            ติดตาม Serial Number, Location, และสถานะการเก็บ
+                        </p>
+                        
+                        <div class="system-grid">
+                            <div class="system-card">
+                                <div class="system-icon">📊</div>
+                                <div class="system-name">HDD Holding</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">196,487</div>
+                                <div class="system-status">Records</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">🔍</div>
+                                <div class="system-name">Search S/N</div>
+                                <div class="system-status">Available</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">📍</div>
+                                <div class="system-name">Location Track</div>
+                                <div class="system-status">Real-time</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">📝</div>
+                                <div class="system-name">IN/OUT Log</div>
+                                <div class="system-status">Active</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric" style="margin-top: 20px;">
+                            <div class="metric-label">Products Tracked</div>
+                            <div class="metric-value" style="font-size: 1.3rem;">
+                                SEW, LDV, PDS, HDS, LBS, SEK, PDQ, VCL, PCM, VCC, MFH, XBA
+                            </div>
+                        </div>
+                        
+                        <div class="metric">
+                            <div class="metric-label">HDD Distribution by Time</div>
+                            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span>< 1 Week:</span>
+                                    <strong>3,002 units</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span>> 1 Week:</span>
+                                    <strong>1,079 units</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span>1-3 Months:</span>
+                                    <strong>466 units</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>> 1 Year:</span>
+                                    <strong>35 units</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric">
+                            <div class="metric-label">System Status</div>
+                            <div class="metric-value">🟢 Online (Real-time)</div>
+                        </div>
+                        
+                        <button class="task-action" style="width: 100%; margin-top: 20px;" 
+                                onclick="window.open('http://10.144.130.104/PE/brc.php', '_blank')">
+                            Open PE Inventory System →
+                        </button>
+                    `
+                },
                 wwc: {
                     title: '🎮 WWC Smart Services',
                     content: `
@@ -1357,7 +1459,10 @@
                 'ocap': 'You have 3 active OCAP cases. OCAP-2025-0156 is at Step 3/7 and due today. Would you like to see the details?',
                 'production': 'Today\'s production is 45,230 units, which is 103% of target. All lines are performing well except Line B. Need more details?',
                 'beamm': 'BEAMM Sorted Viewer is available and showing real-time data. You can access detailed analytics and filtering options there.',
-                'default': 'I understand. I can help you with production data, OCAP cases, approvals, BEAMM analytics, and more. What specific information do you need?'
+                'inventory': 'PE Inventory System has 196,487 HDD records. You can search by Serial Number, track locations, and view IN/OUT logs. What would you like to check?',
+                'pe lab': 'PE Lab currently holds HDDs across multiple products (SEW, LDV, PDS, HDS, etc.). Total: 196,487 units. Most are less than 1 week old (3,002 units).',
+                'hdd': 'I can help you search for HDD information in PE Inventory. Please provide the Serial Number or product type you want to check.',
+                'default': 'I understand. I can help you with production data, OCAP cases, approvals, PE Inventory, BEAMM analytics, and more. What specific information do you need?'
             };
 
             for (let key in responses) {
@@ -1376,7 +1481,7 @@
 
         window.addEventListener('load', function() {
             setTimeout(() => {
-                showToast('✨ Welcome to WD Smart Hub!', 3000);
+                showToast('✨ Welcome to WD-Nexus!', 3000);
             }, 2000);
         });
 
