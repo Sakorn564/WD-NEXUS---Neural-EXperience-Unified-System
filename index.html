@@ -316,136 +316,6 @@
             border: 1px solid var(--warning-orange);
         }
 
-        /* Dashboard Section */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .dashboard-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 15px;
-            padding: 25px;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .card-header h3 {
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .more-btn {
-            background: none;
-            border: none;
-            color: var(--primary-blue);
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .metric {
-            margin-bottom: 15px;
-        }
-
-        .metric-label {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-bottom: 5px;
-        }
-
-        .metric-value {
-            font-size: 2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-        }
-
-        .metric-trend {
-            font-size: 1rem;
-            color: var(--success-green);
-        }
-
-        .metric-trend.down {
-            color: var(--danger-red);
-        }
-
-        .progress-bar-container {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            height: 10px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-blue), var(--success-green));
-            border-radius: 10px;
-            transition: width 1s ease;
-        }
-
-        /* Task List */
-        .task-list {
-            list-style: none;
-        }
-
-        .task-item {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .task-item:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateX(5px);
-        }
-
-        .task-info {
-            flex: 1;
-        }
-
-        .task-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .task-meta {
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        .task-action {
-            padding: 8px 15px;
-            background: var(--primary-blue);
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .task-action:hover {
-            background: var(--dark-blue);
-            transform: scale(1.05);
-        }
-
         /* Modal */
         .modal {
             display: none;
@@ -555,6 +425,74 @@
             color: var(--success-green);
         }
 
+        /* Task List */
+        .task-list {
+            list-style: none;
+        }
+
+        .task-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .task-info {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .task-meta {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .task-action {
+            padding: 8px 15px;
+            background: var(--primary-blue);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .task-action:hover {
+            background: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        .metric {
+            margin-bottom: 15px;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
         /* Chat Interface */
         .chat-container {
             background: rgba(255,255,255,0.05);
@@ -632,7 +570,6 @@
                 text-align: center;
             }
 
-            .dashboard-grid,
             .quick-access,
             .system-grid {
                 grid-template-columns: 1fr;
@@ -848,7 +785,6 @@
                 </div>
             </div>
 
-            <!-- ✅ NEW: Helios/TWatcher -->
             <div class="access-card" onclick="openSystem('helios')">
                 <div class="card-icon">🔍</div>
                 <div class="card-title">Helios/TWatcher</div>
@@ -859,7 +795,6 @@
                 </div>
             </div>
 
-            <!-- ✅ NEW: TAO Tool -->
             <div class="access-card" onclick="openSystem('tao')">
                 <div class="card-icon">🛠️</div>
                 <div class="card-title">TAO Tool</div>
@@ -870,7 +805,6 @@
                 </div>
             </div>
 
-            <!-- ✅ NEW: Connect -->
             <div class="access-card" onclick="openSystem('Connect')">
                 <div class="card-icon">📚</div>
                 <div class="card-title">Connect</div>
@@ -881,7 +815,6 @@
                 </div>
             </div>
 
-            <!-- ✅ NEW: ServiceNow -->
             <div class="access-card" onclick="openSystem('servicenow')">
                 <div class="card-icon">🎫</div>
                 <div class="card-title">ServiceNow</div>
@@ -892,10 +825,9 @@
                 </div>
             </div>
 
-            <!-- ✅ NEW: MFG App -->
-            <div class="access-card" onclick="openSystem('MFG App ')">
+            <div class="access-card" onclick="openSystem('MFG App')">
                 <div class="card-icon">🏠</div>
-                <div class="card-title">MFG App </div>
+                <div class="card-title">MFG App</div>
                 <div class="card-description">Central portal & resources</div>
                 <div class="card-status">
                     <span class="status-badge active">🟢 Active</span>
@@ -911,120 +843,6 @@
                     <span class="status-badge active">🟢 Available</span>
                     <span style="opacity: 0.7;">Open</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- Dashboard Section -->
-        <h2 class="mb-20">📊 Today's Overview</h2>
-        <div class="dashboard-grid">
-            <!-- Production Metrics -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>🏭 Production</h3>
-                    <button class="more-btn">⋯</button>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Overall Yield</div>
-                    <div class="metric-value">
-                        93.2%
-                        <span class="metric-trend">↗ +2.1%</span>
-                    </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 93.2%;"></div>
-                    </div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Units Produced Today</div>
-                    <div class="metric-value">45,230</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Target Achievement</div>
-                    <div class="metric-value">
-                        103%
-                        <span class="metric-trend">↗ Above target</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quality Metrics -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>✅ Quality</h3>
-                    <button class="more-btn">⋯</button>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Defect Rate</div>
-                    <div class="metric-value">
-                        1.8%
-                        <span class="metric-trend">↗ -0.3%</span>
-                    </div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">Active OCAP Cases</div>
-                    <div class="metric-value">3</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-label">First Pass Yield</div>
-                    <div class="metric-value">
-                        96.5%
-                        <span class="metric-trend">↗ +1.2%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Your Tasks -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>📋 Your Tasks</h3>
-                    <button class="more-btn">⋯</button>
-                </div>
-                <ul class="task-list">
-                    <li class="task-item">
-                        <div class="task-info">
-                            <div class="task-title">Review OCAP-2025-0156</div>
-                            <div class="task-meta">Due: Today, 5:00 PM</div>
-                        </div>
-                        <button class="task-action" onclick="openTask('ocap-156')">Open</button>
-                    </li>
-                    <li class="task-item">
-                        <div class="task-info">
-                            <div class="task-title">Approve PR-45678</div>
-                            <div class="task-meta">Due: Tomorrow</div>
-                        </div>
-                        <button class="task-action" onclick="openTask('pr-45678')">Review</button>
-                    </li>
-                    <li class="task-item">
-                        <div class="task-info">
-                            <div class="task-title">Training: GMP Refresh</div>
-                            <div class="task-meta">Due: This week</div>
-                        </div>
-                        <button class="task-action" onclick="openTask('training')">Start</button>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Alerts -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <h3>🚨 Alerts</h3>
-                    <button class="more-btn">⋯</button>
-                </div>
-                <ul class="task-list">
-                    <li class="task-item">
-                        <div class="task-info">
-                            <div class="task-title">⚠️ Line B Yield Below Target</div>
-                            <div class="task-meta">88.3% (Target: 90%)</div>
-                        </div>
-                        <button class="task-action" onclick="investigateAlert('line-b')">Check</button>
-                    </li>
-                    <li class="task-item">
-                        <div class="task-info">
-                            <div class="task-title">⏰ Golden Sample Expiring</div>
-                            <div class="task-meta">GS-1234 expires tomorrow</div>
-                        </div>
-                        <button class="task-action" onclick="handleExpiry('gs-1234')">Renew</button>
-                    </li>
-                </ul>
             </div>
         </div>
 
@@ -1253,7 +1071,7 @@
                         </div>
                         <div class="metric">
                             <div class="metric-label">Overall Yield</div>
-                            <div class="metric-value">93.2% <span class="metric-trend">↗ +2.1%</span></div>
+                            <div class="metric-value">93.2%</div>
                         </div>
                         <button class="task-action" style="width: 100%; margin-top: 20px;" onclick="window.open('http://prbweb.prb.hgst.com/mvx-portal.html', '_blank')">
                             Open MVX Portal →
@@ -1293,7 +1111,6 @@
                         </ul>
                     `
                 },
-                // ✅ NEW SYSTEMS
                 helios: {
                     title: '🔍 Helios/TWatcher',
                     content: `
@@ -1323,7 +1140,7 @@
                     `
                 },
                 sharepoint: {
-                    title: '📚 WD Connect',
+                    title: '📚 SharePoint',
                     content: `
                         <h3>Document Management & Collaboration</h3>
                         <p style="margin: 15px 0; opacity: 0.8;">Access shared documents, wikis, and collaboration spaces</p>
@@ -1367,7 +1184,7 @@
                     `
                 },
                 landing: {
-                    title: '🏠 MFG App',
+                    title: '🏠 Landing Home Page',
                     content: `
                         <h3>Central Portal</h3>
                         <p style="margin: 15px 0; opacity: 0.8;">Main gateway to all WD resources and applications</p>
@@ -1423,19 +1240,6 @@
 
         function closeModal() {
             document.getElementById('systemModal').classList.remove('active');
-        }
-
-        function openTask(taskId) {
-            showToast(`Opening task: ${taskId}`, 2000);
-        }
-
-        function investigateAlert(alert) {
-            showToast(`Investigating: ${alert}`, 2000);
-            sendAIQuery(`Show details for ${alert}`);
-        }
-
-        function handleExpiry(item) {
-            showToast(`Processing renewal for: ${item}`, 2000);
         }
 
         function showNotifications() {
@@ -1542,16 +1346,6 @@
 
         window.addEventListener('load', function() {
             setTimeout(() => {
-                document.querySelectorAll('.progress-bar').forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            }, 500);
-
-            setTimeout(() => {
                 showToast('✨ Welcome to WD Smart Hub!', 3000);
             }, 2000);
         });
@@ -1582,6 +1376,3 @@
 
 </body>
 </html>
-
-
-
