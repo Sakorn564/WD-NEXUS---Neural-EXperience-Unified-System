@@ -729,6 +729,7 @@
                 <span class="suggestion-chip" onclick="quickQuery('My pending approvals')">✅ Approvals ที่รอ</span>
                 <span class="suggestion-chip" onclick="quickQuery('Show Neptune 2TB data')">🔍 ข้อมูล Neptune 2TB</span>
                 <span class="suggestion-chip" onclick="quickQuery('Search HDD in PE Inventory')">📦 ค้นหา HDD ใน PE Lab</span>
+                <span class="suggestion-chip" onclick="quickQuery('ASL Grid View')">📋 ASL Grid View</span>
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
@@ -813,6 +814,16 @@
                 <div class="card-status">
                     <span class="status-badge active">🟢 Available</span>
                     <span style="opacity: 0.7;">Analysis</span>
+                </div>
+            </div>
+
+            <div class="access-card" onclick="openSystem('asl')">
+                <div class="card-icon">📋</div>
+                <div class="card-title">ASL Grid View</div>
+                <div class="card-description">Approved Supplier List management</div>
+                <div class="card-status">
+                    <span class="status-badge active">🟢 Active</span>
+                    <span style="opacity: 0.7;">Suppliers</span>
                 </div>
             </div>
 
@@ -1006,17 +1017,34 @@
                         </div>
                     </div>
                 `;
+            } else if (query.toLowerCase().includes('asl') || 
+                       query.toLowerCase().includes('supplier') ||
+                       query.toLowerCase().includes('approved supplier')) {
+                response = `
+                    <div class="search-result-item">
+                        <div class="result-title">📋 ASL Grid View System</div>
+                        <div class="result-source">Source: Approved Supplier List Management</div>
+                        <div class="result-snippet">
+                            <strong>System:</strong> ASL Grid View Management<br>
+                            <strong>Function:</strong> Track and manage approved suppliers<br>
+                            <strong>Features:</strong> Supplier qualification, approval status, grid view interface<br>
+                            <strong>Status:</strong> 🟢 Active<br>
+                            <strong>Access:</strong> View supplier data, track approvals, manage supplier list
+                        </div>
+                    </div>
+                `;
             } else {
                 response = `
                     <div class="search-result-item">
                         <div class="result-title">🔍 Search Results for "${query}"</div>
-                        <div class="result-source">Searched across 13 systems</div>
+                        <div class="result-source">Searched across 14 systems</div>
                         <div class="result-snippet">
                             Found results across:<br>
                             • Agile PLM<br>
                             • MVX Portal<br>
                             • OCAP System<br>
                             • PE Inventory<br>
+                            • ASL Grid View<br>
                             • BEAMM<br>
                             • SharePoint<br>
                             • ServiceNow<br>
@@ -1194,6 +1222,59 @@
                         </div>
                         <button class="task-action" style="width: 100%; margin-top: 20px;" onclick="window.open('http://tpt-ep-tpesrv10:3010/beamm/sorted-viewer', '_blank')">
                             Open BEAMM Viewer →
+                        </button>
+                    `
+                },
+                asl: {
+                    title: '📋 ASL Grid View',
+                    content: `
+                        <h3>Approved Supplier List Management</h3>
+                        <p style="margin: 15px 0; opacity: 0.8;">
+                            จัดการและติดตามรายชื่อ Supplier ที่ได้รับการอนุมัติ<br>
+                            ระบบจัดการข้อมูล supplier พร้อมสถานะการอนุมัติแบบ real-time
+                        </p>
+                        
+                        <div class="system-grid">
+                            <div class="system-card">
+                                <div class="system-icon">🏢</div>
+                                <div class="system-name">Suppliers</div>
+                                <div class="system-status">Active</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">✅</div>
+                                <div class="system-name">Approved</div>
+                                <div class="system-status">Tracked</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">📊</div>
+                                <div class="system-name">Grid View</div>
+                                <div class="system-status">Available</div>
+                            </div>
+                            <div class="system-card">
+                                <div class="system-icon">🔍</div>
+                                <div class="system-name">Search</div>
+                                <div class="system-status">Real-time</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric" style="margin-top: 20px;">
+                            <div class="metric-label">Key Features</div>
+                            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                <div style="margin-bottom: 8px;">✓ Supplier qualification tracking</div>
+                                <div style="margin-bottom: 8px;">✓ Approval status monitoring</div>
+                                <div style="margin-bottom: 8px;">✓ Grid view interface for easy management</div>
+                                <div>✓ Real-time data updates</div>
+                            </div>
+                        </div>
+                        
+                        <div class="metric">
+                            <div class="metric-label">System Status</div>
+                            <div class="metric-value">🟢 Active</div>
+                        </div>
+                        
+                        <button class="task-action" style="width: 100%; margin-top: 20px;" 
+                                onclick="window.open('http://tpt-op-scmapps1/ASL/GridView/ViewGridView', '_blank')">
+                            Open ASL Grid View →
                         </button>
                     `
                 },
@@ -1462,7 +1543,9 @@
                 'inventory': 'PE Inventory System has 196,487 HDD records. You can search by Serial Number, track locations, and view IN/OUT logs. What would you like to check?',
                 'pe lab': 'PE Lab currently holds HDDs across multiple products (SEW, LDV, PDS, HDS, etc.). Total: 196,487 units. Most are less than 1 week old (3,002 units).',
                 'hdd': 'I can help you search for HDD information in PE Inventory. Please provide the Serial Number or product type you want to check.',
-                'default': 'I understand. I can help you with production data, OCAP cases, approvals, PE Inventory, BEAMM analytics, and more. What specific information do you need?'
+                'asl': 'ASL Grid View is active and tracking approved suppliers. You can view supplier qualifications, approval status, and manage the supplier list in real-time.',
+                'supplier': 'The ASL system tracks all approved suppliers with grid view interface. You can search suppliers, check approval status, and monitor qualifications. Would you like to access it?',
+                'default': 'I understand. I can help you with production data, OCAP cases, approvals, PE Inventory, ASL suppliers, BEAMM analytics, and more. What specific information do you need?'
             };
 
             for (let key in responses) {
