@@ -805,9 +805,19 @@
                 </div>
             </div>
 
-            <div class="access-card" onclick="openSystem('Connect')">
+            <div class="access-card" onclick="openSystem('beamm')">
+                <div class="card-icon">📊</div>
+                <div class="card-title">BEAMM</div>
+                <div class="card-description">Sorted data viewer & analytics</div>
+                <div class="card-status">
+                    <span class="status-badge active">🟢 Available</span>
+                    <span style="opacity: 0.7;">Analysis</span>
+                </div>
+            </div>
+
+            <div class="access-card" onclick="openSystem('sharepoint')">
                 <div class="card-icon">📚</div>
-                <div class="card-title">Connect</div>
+                <div class="card-title">SharePoint</div>
                 <div class="card-description">Documents & collaboration</div>
                 <div class="card-status">
                     <span class="status-badge active">🟢 Online</span>
@@ -825,7 +835,7 @@
                 </div>
             </div>
 
-            <div class="access-card" onclick="openSystem('MFG App')">
+            <div class="access-card" onclick="openSystem('landing')">
                 <div class="card-icon">🏠</div>
                 <div class="card-title">MFG App</div>
                 <div class="card-description">Central portal & resources</div>
@@ -978,6 +988,7 @@
                             • Agile PLM<br>
                             • MVX Portal<br>
                             • OCAP System<br>
+                            • BEAMM<br>
                             • SharePoint<br>
                             • ServiceNow<br>
                             • Helios/TWatcher
@@ -1136,6 +1147,24 @@
                         </div>
                         <button class="task-action" style="width: 100%; margin-top: 20px;" onclick="window.open('http://10.171.132.23/tao_tool/', '_blank')">
                             Open TAO Tool →
+                        </button>
+                    `
+                },
+                beamm: {
+                    title: '📊 BEAMM Sorted Viewer',
+                    content: `
+                        <h3>Data Analytics & Sorted Viewer</h3>
+                        <p style="margin: 15px 0; opacity: 0.8;">View and analyze sorted production data with advanced filtering</p>
+                        <div class="metric">
+                            <div class="metric-label">System Status</div>
+                            <div class="metric-value">🟢 Available</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Last Updated</div>
+                            <div class="metric-value" style="font-size: 1.2rem;">Real-time</div>
+                        </div>
+                        <button class="task-action" style="width: 100%; margin-top: 20px;" onclick="window.open('http://tpt-ep-tpesrv10:3010/beamm/sorted-viewer', '_blank')">
+                            Open BEAMM Viewer →
                         </button>
                     `
                 },
@@ -1327,7 +1356,8 @@
                 'yield': 'Current overall yield is 93.2%, which is above target of 90%. Line B is slightly below target at 88.3%. Would you like me to investigate Line B?',
                 'ocap': 'You have 3 active OCAP cases. OCAP-2025-0156 is at Step 3/7 and due today. Would you like to see the details?',
                 'production': 'Today\'s production is 45,230 units, which is 103% of target. All lines are performing well except Line B. Need more details?',
-                'default': 'I understand. I can help you with production data, OCAP cases, approvals, and more. What specific information do you need?'
+                'beamm': 'BEAMM Sorted Viewer is available and showing real-time data. You can access detailed analytics and filtering options there.',
+                'default': 'I understand. I can help you with production data, OCAP cases, approvals, BEAMM analytics, and more. What specific information do you need?'
             };
 
             for (let key in responses) {
